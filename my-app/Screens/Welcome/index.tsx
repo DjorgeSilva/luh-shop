@@ -1,9 +1,14 @@
 import { ReactElement } from "react";
-import { View } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
 
 const Welcome = (): ReactElement => {
-  return <View style={styles.container}>Welcome</View>;
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>Welcome</Text>
+    </SafeAreaView>
+  );
 };
 
 export default Welcome;
