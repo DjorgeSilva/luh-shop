@@ -15,5 +15,6 @@ export const COLORS = {
   light_green: "#D8EAF7",
   green: "#2D4D52",
   white: "#fff",
+  gray_background: "#F7F7F7",
   dark_gray: "#7E8893",
 };

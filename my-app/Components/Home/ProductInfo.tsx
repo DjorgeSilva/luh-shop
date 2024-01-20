@@ -1,9 +1,14 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { ReactElement } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { BORDER_RADIUS, COLORS } from "../../constants";
 import { ProductType } from "../../types";
 
 const ProductInfo = ({ title, price, image }: ProductType): ReactElement => {
+  const onCartAdd = (): void => {
+    //
+  };
+
   return (
     <TouchableOpacity style={styles.productBox}>
       <View style={styles.imageWrapper}>
@@ -20,9 +25,9 @@ const ProductInfo = ({ title, price, image }: ProductType): ReactElement => {
       <View
         style={{
           ...styles.textWrapper,
+          flex: 1,
           borderBottomLeftRadius: BORDER_RADIUS,
           borderBottomRightRadius: BORDER_RADIUS,
-          paddingTop: 10,
         }}
       >
         <Text style={styles.label}>
@@ -31,6 +36,9 @@ const ProductInfo = ({ title, price, image }: ProductType): ReactElement => {
             currency: "BRL",
           }).format(price)}
         </Text>
+        <TouchableOpacity onPress={onCartAdd}>
+          <Ionicons name="add-circle" size={20} color={COLORS.green} />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -56,12 +64,15 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   textWrapper: {
-    flex: 1,
-    backgroundColor: "#cfcfcc",
+    flex: 2,
+    flexDirection: "row",
+    justifyContent: "space-between",
     textAlign: "left",
+    paddingTop: 10,
+    paddingHorizontal: 5,
+    backgroundColor: COLORS.gray_background,
   },
   label: {
     fontSize: 12,
-    paddingLeft: 5,
   },
 });
