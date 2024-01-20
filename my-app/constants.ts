@@ -1,5 +1,7 @@
 export const EMPTY_STRING = "";
 export const BORDER_RADIUS = 10;
+
+export const DEFAULT_MARGIN_VERTICAL = 8;
 export const SIZES = {
   EXTRA_SMALL: 15,
   SMALL: 20,

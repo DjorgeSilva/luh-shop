@@ -24,8 +24,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 5,
-    marginHorizontal: 10,
+    marginBottom: -12,
   },
   locationIcon: { flex: 1, alignItems: "flex-start" },
   locationLabel: {

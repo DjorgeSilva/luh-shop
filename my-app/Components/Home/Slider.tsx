@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { BORDER_RADIUS } from "../../constants";
+import { BORDER_RADIUS, DEFAULT_MARGIN_VERTICAL } from "../../constants";
 
 const Slider = () => {
   return (
@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    marginVertical: DEFAULT_MARGIN_VERTICAL,
   },
 });

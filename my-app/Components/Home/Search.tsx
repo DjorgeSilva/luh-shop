@@ -1,7 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { ReactElement } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
-import { BORDER_RADIUS, COLORS, SIZES } from "../../constants";
+import {
+  BORDER_RADIUS,
+  COLORS,
+  DEFAULT_MARGIN_VERTICAL,
+  SIZES,
+} from "../../constants";
 import { BottomTabNavigationProp } from "../../types";
 
 const Search = ({ navigation }: BottomTabNavigationProp): ReactElement => {
@@ -38,7 +43,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: COLORS.light_green,
-    marginVertical: 15,
+    marginVertical: DEFAULT_MARGIN_VERTICAL,
     borderRadius: BORDER_RADIUS,
   },
   searchIcon: {
