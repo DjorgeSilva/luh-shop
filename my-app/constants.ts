@@ -1,5 +1,5 @@
 export const EMPTY_STRING = "";
-
+export const BORDER_RADIUS = 10;
 export const SIZES = {
   EXTRA_SMALL: 15,
   SMALL: 20,
