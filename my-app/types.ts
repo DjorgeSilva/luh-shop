@@ -6,4 +6,13 @@ export type BottomTabScreenType = {
   Search: undefined;
 };
 
+export type ProductType = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+  categoria: string;
+};
+
 export type BottomTabNavigationProp = BottomTabScreenProps<BottomTabScreenType>;
