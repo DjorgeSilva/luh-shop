@@ -14,6 +14,7 @@ const BottomNavigationTab = (): ReactElement => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+        tabBarHideOnKeyboard: true,
       }}
     >
       <Tab.Screen
