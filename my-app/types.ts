@@ -35,6 +35,11 @@ export type RegisterFormType = {
   confirmPassword: string;
 };
 
+export type LoginFormType = {
+  email: string;
+  password: string;
+};
+
 export type ProductType = {
   id: string;
   title: string;
