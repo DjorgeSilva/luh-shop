@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TextInput } from "react-native";
-import { COLORS } from "../../constants";
+import { COLORS, SIZES } from "../../constants";
 
 export const CustomInput = (props: any) => {
   const {
@@ -11,8 +11,23 @@ export const CustomInput = (props: any) => {
 
   const hasError = errors[name] && touched[name];
 
+  const getLabel = (): string => {
+    let label = name;
+    if (label === "name") {
+      label = "Nome";
+    }
+    if (label === "password") {
+      label = "Senha";
+    }
+    if (label === "confirmPassword") {
+      label = "Confirmar senha";
+    }
+    return label;
+  };
+
   return (
     <>
+      <Text style={styles.inputLabel}>{getLabel()}</Text>
       <TextInput
         style={[styles.textInput, hasError && styles.errorInput]}
         value={value}
@@ -29,6 +44,12 @@ export const CustomInput = (props: any) => {
 };
 
 const styles = StyleSheet.create({
+  inputLabel: {
+    fontSize: SIZES.EXTRA_SMALL,
+    color: COLORS.dark_gray,
+    textTransform: "capitalize",
+    marginTop: 10,
+  },
   textInput: {
     height: 40,
     width: "100%",
@@ -43,7 +64,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: COLORS.red,
     marginTop: 5,
-    marginBottom: 10,
   },
   errorInput: {
     borderColor: COLORS.red,

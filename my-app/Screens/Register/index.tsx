@@ -46,13 +46,9 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
       >
         {({ handleSubmit, isValid }) => (
           <View style={styles.formWrapper}>
-            <Text style={styles.inputLabel}>Nome</Text>
             <Field component={CustomInput} name={"name"} />
-            <Text style={styles.inputLabel}>Email</Text>
             <Field component={CustomInput} name={"email"} />
-            <Text style={styles.inputLabel}>Senha</Text>
             <Field component={CustomInput} name={"password"} secureTextEntry />
-            <Text style={styles.inputLabel}>confirmar Senha</Text>
             <Field
               component={CustomInput}
               name={"confirmPassword"}
