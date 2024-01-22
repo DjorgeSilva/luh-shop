@@ -4,7 +4,7 @@ import { Button, Text, View } from "react-native";
 import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CustomInput } from "../../Components/Register/CustomInput";
-import { registerValidationSchema } from "../../Schemas/registerValidationSchema";
+import { userFormValidationSchema } from "../../Schemas/userFormValidationSchema";
 import { COLORS, EMPTY_STRING } from "../../constants";
 import registerUserPost from "../../controllers/RegisterController";
 import { RegisterFormType, StackNavigationProp } from "../../types";
@@ -34,7 +34,7 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
         <Text style={styles.title}>Cadastrar</Text>
       </View>
       <Formik
-        validationSchema={registerValidationSchema}
+        validationSchema={userFormValidationSchema}
         initialValues={{
           name: EMPTY_STRING,
           email: EMPTY_STRING,
