@@ -34,4 +34,10 @@ export const styles = StyleSheet.create({
     borderRadius: BORDER_RADIUS,
     paddingLeft: 10,
   },
+  link: {
+    marginVertical: 20,
+    textAlign: "center",
+    fontSize: 18,
+    color: COLORS.green,
+  },
 });

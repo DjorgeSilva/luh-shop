@@ -1,3 +1,4 @@
+import { Link } from "@react-navigation/native";
 import { Field, Formik } from "formik";
 import { ReactElement } from "react";
 import { Button, Text, View } from "react-native";
@@ -52,9 +53,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
             <Field component={CustomInput} name={"email"} />
             <Text style={styles.inputLabel}>Senha</Text>
             <Field component={CustomInput} name={"password"} secureTextEntry />
-            <View
-              style={{ flex: 1, justifyContent: "flex-end", marginBottom: 20 }}
-            >
+            <View style={{ flex: 1, justifyContent: "flex-end" }}>
               <Button
                 color={COLORS.green}
                 onPress={() => handleSubmit()}
@@ -62,6 +61,9 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
                 disabled={!isValid}
               />
             </View>
+            <Link to={{ screen: "Register" }} style={styles.link}>
+              Não é cadastrado? Cadastra-se
+            </Link>
           </View>
         )}
       </Formik>

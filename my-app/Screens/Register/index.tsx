@@ -1,3 +1,4 @@
+import { Link } from "@react-navigation/native";
 import { Field, Formik } from "formik";
 import { ReactElement } from "react";
 import { Button, Text, View } from "react-native";
@@ -57,15 +58,16 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
               name={"confirmPassword"}
               secureTextEntry
             />
-            <View
-              style={{ flex: 1, justifyContent: "flex-end", marginBottom: 20 }}
-            >
+            <View style={{ flex: 1, justifyContent: "flex-end" }}>
               <Button
                 color={COLORS.green}
                 onPress={() => handleSubmit()}
                 title="Cadastrar"
                 disabled={!isValid}
               />
+              <Link to={{ screen: "Login" }} style={styles.link}>
+                já está cadastrado? Login
+              </Link>
             </View>
           </View>
         )}

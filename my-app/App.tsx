@@ -16,7 +16,7 @@ export default function App() {
           screenOptions={{
             headerShown: false,
           }}
-          initialRouteName="Register"
+          initialRouteName="Login"
         >
           <Stack.Screen
             name="BottomNavigationTab"
