@@ -74,6 +74,7 @@ app.post("/auth/register", async (req, resp) => {
     await newUser.save();
     return resp.status(200).json({
       code: 200,
+      msg: "cadastrado com sucesso!",
       data: {
         name: newUser.name,
         email: newUser.email,
