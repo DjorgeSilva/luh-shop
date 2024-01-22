@@ -1,12 +1,12 @@
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ReactElement } from "react";
 import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
 import Search from "../Screens/Search";
-import { BottomTabScreenType } from "../types";
+import { BottomTabNavigationType } from "../types";
 
-const Tab = createBottomTabNavigator<BottomTabScreenType>();
+const Tab = createBottomTabNavigator<BottomTabNavigationType>();
 
 const BottomNavigationTab = (): ReactElement => {
   return (
@@ -44,8 +44,8 @@ const BottomNavigationTab = (): ReactElement => {
         component={Profile}
         options={() => ({
           tabBarIcon: ({ focused, color, size }) => (
-            <FontAwesome
-              name={focused ? "user-circle" : "user-circle-o"}
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
               color={color}
               size={size}
             />

@@ -7,10 +7,10 @@ import { CustomInput } from "../../Components/Register/CustomInput";
 import { registerValidationSchema } from "../../Schemas/registerValidationSchema";
 import { COLORS, EMPTY_STRING } from "../../constants";
 import registerUserPost from "../../controllers/RegisterController";
-import { RegisterFormType } from "../../types";
+import { RegisterFormType, StackNavigationProp } from "../../types";
 import { styles } from "./styles";
 
-const Register = (): ReactElement => {
+const Register = ({ navigation }: StackNavigationProp): ReactElement => {
   const onSubmit = async (values: RegisterFormType) => {
     const resp = await registerUserPost(values);
     if (resp.code !== 200) {
@@ -22,9 +22,10 @@ const Register = (): ReactElement => {
     }
     Toast.show(resp.msg, {
       duration: Toast.durations.LONG,
-      backgroundColor: COLORS.red,
+      backgroundColor: COLORS.green,
       position: -65,
     });
+    navigation.navigate("Login");
   };
 
   return (
