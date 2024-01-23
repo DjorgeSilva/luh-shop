@@ -1,6 +1,6 @@
 import { Link } from "@react-navigation/native";
 import { Field, Formik, FormikProps } from "formik";
-import { ReactElement, useEffect, useRef } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import { Dimensions, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,6 +14,7 @@ import { styles } from "./styles";
 
 const Register = ({ navigation }: StackNavigationProp): ReactElement => {
   const ref = useRef<FormikProps<RegisterFormType>>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // reset fields
@@ -27,14 +28,17 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
   }, [navigation]);
 
   const onSubmit = async (values: RegisterFormType) => {
+    setIsLoading(true);
     const resp = await registerUserPost(values);
     if (resp.code !== 200) {
+      setIsLoading(false);
       return Toast.show(resp.msg, {
         duration: Toast.durations.SHORT,
         backgroundColor: COLORS.red,
         position: -145,
       });
     }
+    setIsLoading(false);
     Toast.show(resp.msg, {
       duration: Toast.durations.SHORT,
       backgroundColor: COLORS.success_color,
@@ -80,6 +84,7 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
                   onPress={() => handleSubmit()}
                   title="Cadastrar"
                   disabled={!isValid}
+                  isLoading={isLoading}
                 />
                 <Link to={{ screen: "Login" }} style={styles.link}>
                   já está cadastrado? Login

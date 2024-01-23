@@ -1,6 +1,6 @@
 import { Link } from "@react-navigation/native";
 import { Field, Formik, FormikProps } from "formik";
-import { ReactElement, useEffect, useRef } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import { Dimensions, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,6 +14,7 @@ import { styles } from "./styles";
 
 const Login = ({ navigation }: StackNavigationProp): ReactElement => {
   const ref = useRef<FormikProps<LoginFormType>>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // reset fields
@@ -27,14 +28,17 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
   }, [navigation]);
 
   const onSubmit = async (values: LoginFormType) => {
+    setIsLoading(true);
     const resp = await loginUser(values);
     if (resp.code !== 200) {
+      setIsLoading(false);
       return Toast.show(resp.msg, {
         duration: Toast.durations.SHORT,
         backgroundColor: COLORS.red,
         position: -145,
       });
     }
+    setIsLoading(false);
     Toast.show(resp.msg, {
       duration: Toast.durations.SHORT,
       backgroundColor: COLORS.success_color,
@@ -73,6 +77,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
                   onPress={() => handleSubmit()}
                   title="Login"
                   disabled={!isValid}
+                  isLoading={isLoading}
                 />
               </View>
               <Link to={{ screen: "Register" }} style={styles.link}>

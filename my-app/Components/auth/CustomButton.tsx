@@ -1,10 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { COLORS } from "../../constants";
 import { CustomButtonType } from "../../types";
 
 export default function CustomButton(props: CustomButtonType) {
-  const { onPress, title, style, disabled: disabled } = props;
+  const { onPress, title, style, disabled: disabled, isLoading } = props;
   const backgroundColor = style ? style.backgroundColor : COLORS.green;
   const textColor = style ? style.color : COLORS.white;
 
@@ -18,14 +23,18 @@ export default function CustomButton(props: CustomButtonType) {
       onPress={onPress}
       disabled={disabled}
     >
-      <Text
-        style={{
-          ...styles.text,
-          color: textColor,
-        }}
-      >
-        {title}
-      </Text>
+      {isLoading ? (
+        <ActivityIndicator size="small" color={COLORS.success_color} />
+      ) : (
+        <Text
+          style={{
+            ...styles.text,
+            color: textColor,
+          }}
+        >
+          {title}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 }
