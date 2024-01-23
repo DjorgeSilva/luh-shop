@@ -7,11 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "../../Components/auth/CustomButton";
 import { CustomInput } from "../../Components/auth/CustomInput";
 import { userFormValidationSchema } from "../../Schemas/userFormValidationSchema";
-import {
-  COLORS,
-  INITIAL_LOGIN_FORM_VALUES,
-  INITIAL_REGISTER_FORM_VALUES,
-} from "../../constants";
+import { COLORS, INITIAL_LOGIN_FORM_VALUES } from "../../constants";
 import loginUser from "../../controllers/LoginController";
 import { LoginFormType, StackNavigationProp } from "../../types";
 import { styles } from "./styles";
@@ -23,7 +19,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
     // reset fields
     navigation.addListener("focus", () => {
       if (ref?.current) {
-        ref.current.values = INITIAL_REGISTER_FORM_VALUES;
+        ref.current.values = INITIAL_LOGIN_FORM_VALUES;
         ref.current.setErrors({});
       }
     });

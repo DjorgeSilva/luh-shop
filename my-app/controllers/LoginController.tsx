@@ -1,3 +1,4 @@
+import { HOST, PORT } from "@env";
 import { EMPTY_STRING } from "../constants";
 import { ApiResponseType, LoginFormType } from "../types";
 
@@ -5,7 +6,7 @@ export default async function loginUser(
   data: LoginFormType
 ): Promise<ApiResponseType> {
   try {
-    const response = await fetch("http://192.168.3.26:8080/auth/login", {
+    const response = await fetch(`${HOST}:${PORT}/auth/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",

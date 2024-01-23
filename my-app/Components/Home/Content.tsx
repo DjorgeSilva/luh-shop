@@ -1,3 +1,4 @@
+import { CONTENT_URI } from "@env";
 import { Ionicons } from "@expo/vector-icons";
 import React, { ReactElement, useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
@@ -11,7 +12,7 @@ const Content = (): ReactElement => {
 
   useEffect((): void => {
     const onLoadProducts = async (): Promise<void> => {
-      getProducts<ProductType[]>("https://fakestoreapi.com/products")
+      getProducts<ProductType[]>(CONTENT_URI)
         .then((data) => {
           setProducts(data);
         })
