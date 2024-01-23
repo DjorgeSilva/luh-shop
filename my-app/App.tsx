@@ -2,8 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { RootSiblingParent } from "react-native-root-siblings";
-import Login from "./Screens/Login";
-import Register from "./Screens/Register";
+import Login from "./Screens/Auth/Login";
+import Register from "./Screens/Auth/Register";
 import BottomNavigationTab from "./navigation";
 
 const Stack = createNativeStackNavigator();

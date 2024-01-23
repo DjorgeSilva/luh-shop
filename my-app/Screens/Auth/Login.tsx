@@ -13,7 +13,7 @@ import {
 } from "../../constants";
 import loginUser from "../../controllers/LoginController";
 import { LoginFormType, StackNavigationProp } from "../../types";
-import { styles } from "../Register/styles";
+import { styles } from "./styles";
 
 const Login = ({ navigation }: StackNavigationProp): ReactElement => {
   const ref = useRef<FormikProps<LoginFormType>>(null);
