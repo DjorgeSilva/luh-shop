@@ -6,7 +6,7 @@ import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "../../Components/auth/CustomButton";
 import { CustomInput } from "../../Components/auth/CustomInput";
-import { userFormValidationSchema } from "../../Schemas/userFormValidationSchema";
+import { userLoginValidationSchema } from "../../Schemas/userFormValidationSchema";
 import { COLORS, INITIAL_LOGIN_FORM_VALUES } from "../../constants";
 import loginUser from "../../controllers/LoginController";
 import { LoginFormType, StackNavigationProp } from "../../types";
@@ -21,6 +21,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
       if (ref?.current) {
         ref.current.values = INITIAL_LOGIN_FORM_VALUES;
         ref.current.setErrors({});
+        ref.current.handleReset();
       }
     });
   }, [navigation]);
@@ -49,7 +50,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
         </View>
         <Formik
           innerRef={ref}
-          validationSchema={userFormValidationSchema}
+          validationSchema={userLoginValidationSchema}
           initialValues={INITIAL_LOGIN_FORM_VALUES}
           onSubmit={onSubmit}
         >
@@ -70,7 +71,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
                 <CustomButton
                   style={{ backgroundColor: COLORS.green, color: COLORS.white }}
                   onPress={() => handleSubmit()}
-                  title="Cadastrar"
+                  title="Login"
                   disabled={!isValid}
                 />
               </View>

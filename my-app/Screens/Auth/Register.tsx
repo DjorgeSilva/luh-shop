@@ -6,12 +6,8 @@ import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "../../Components/auth/CustomButton";
 import { CustomInput } from "../../Components/auth/CustomInput";
-import { userFormValidationSchema } from "../../Schemas/userFormValidationSchema";
-import {
-  COLORS,
-  EMPTY_STRING,
-  INITIAL_REGISTER_FORM_VALUES,
-} from "../../constants";
+import { userRegisterValidationSchema } from "../../Schemas/userFormValidationSchema";
+import { COLORS, INITIAL_REGISTER_FORM_VALUES } from "../../constants";
 import registerUserPost from "../../controllers/RegisterController";
 import { RegisterFormType, StackNavigationProp } from "../../types";
 import { styles } from "./styles";
@@ -23,8 +19,9 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
     // reset fields
     navigation.addListener("focus", () => {
       if (ref?.current) {
-        ref.current.values = INITIAL_REGISTER_FORM_VALUES;
+        ref.current.setValues(INITIAL_REGISTER_FORM_VALUES);
         ref.current.setErrors({});
+        ref.current.handleReset();
       }
     });
   }, [navigation]);
@@ -54,13 +51,8 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
         </View>
         <Formik
           innerRef={ref}
-          validationSchema={userFormValidationSchema}
-          initialValues={{
-            name: EMPTY_STRING,
-            email: EMPTY_STRING,
-            password: EMPTY_STRING,
-            confirmPassword: EMPTY_STRING,
-          }}
+          validationSchema={userRegisterValidationSchema}
+          initialValues={INITIAL_REGISTER_FORM_VALUES}
           onSubmit={onSubmit}
         >
           {({ handleSubmit, isValid }) => (
