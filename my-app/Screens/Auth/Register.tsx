@@ -1,7 +1,7 @@
 import { Link } from "@react-navigation/native";
 import { Field, Formik, FormikProps } from "formik";
 import { ReactElement, useEffect, useRef } from "react";
-import { Button, ScrollView, Text, View } from "react-native";
+import { Button, Dimensions, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CustomInput } from "../../Components/Register/CustomInput";
@@ -63,7 +63,12 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
           onSubmit={onSubmit}
         >
           {({ handleSubmit, isValid }) => (
-            <View style={styles.formWrapper}>
+            <View
+              style={{
+                ...styles.formWrapper,
+                height: Dimensions.get("window").height - 120,
+              }}
+            >
               <Field component={CustomInput} name={"name"} />
               <Field component={CustomInput} name={"email"} />
               <Field

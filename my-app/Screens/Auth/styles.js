@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   formWrapper: {
-    flex: 2,
+    flex: 1,
   },
   inputLabel: {
     fontSize: SIZES.EXTRA_SMALL,
