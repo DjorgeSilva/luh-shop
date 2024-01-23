@@ -1,10 +1,11 @@
 import { Link } from "@react-navigation/native";
 import { Field, Formik, FormikProps } from "formik";
 import { ReactElement, useEffect, useRef } from "react";
-import { Button, Dimensions, ScrollView, Text, View } from "react-native";
+import { Dimensions, ScrollView, Text, View } from "react-native";
 import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { CustomInput } from "../../Components/Register/CustomInput";
+import CustomButton from "../../Components/auth/CustomButton";
+import { CustomInput } from "../../Components/auth/CustomInput";
 import { userFormValidationSchema } from "../../Schemas/userFormValidationSchema";
 import {
   COLORS,
@@ -70,8 +71,8 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
                 secureTextEntry
               />
               <View style={{ flex: 1, justifyContent: "flex-end" }}>
-                <Button
-                  color={COLORS.green}
+                <CustomButton
+                  style={{ backgroundColor: COLORS.green, color: COLORS.white }}
                   onPress={() => handleSubmit()}
                   title="Cadastrar"
                   disabled={!isValid}

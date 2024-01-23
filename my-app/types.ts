@@ -40,6 +40,16 @@ export type LoginFormType = {
   password: string;
 };
 
+export type CustomButtonType = {
+  onPress: () => void;
+  title: string;
+  disabled: boolean;
+  style: {
+    backgroundColor?: string;
+    color?: string;
+  };
+};
+
 export type ProductType = {
   id: string;
   title: string;
