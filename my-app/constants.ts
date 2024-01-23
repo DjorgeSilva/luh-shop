@@ -21,7 +21,7 @@ export const COLORS = {
   red: "#ff0000",
   purple: "#6C63FF",
   light_purple: "#3F3D56",
-  success_color: "#007A31",
+  success_color: "#2AD265",
   alert_color: "##F78400",
 };
 

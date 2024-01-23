@@ -30,15 +30,15 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
     const resp = await loginUser(values);
     if (resp.code !== 200) {
       return Toast.show(resp.msg, {
-        duration: Toast.durations.LONG,
+        duration: Toast.durations.SHORT,
         backgroundColor: COLORS.red,
-        position: -65,
+        position: -145,
       });
     }
     Toast.show(resp.msg, {
-      duration: Toast.durations.LONG,
-      backgroundColor: COLORS.green,
-      position: -65,
+      duration: Toast.durations.SHORT,
+      backgroundColor: COLORS.success_color,
+      position: -145,
     });
   };
 
